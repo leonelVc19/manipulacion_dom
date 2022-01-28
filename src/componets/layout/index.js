@@ -19,6 +19,16 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Container from '@mui/material/Container';
 
+import { Link } from "react-router-dom";
+
+//icons
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import ContactPageRoundedIcon from '@mui/icons-material/ContactPageRounded';
+import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
+
+
+import MenuItem from '@mui/material/MenuItem';
+import ContentPaste from '@mui/icons-material/ContentPaste';
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -94,7 +104,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Persistent drawer
+            <Link to="/" style={{ textDecoration: 'none', color:'white'}}>  Manipulación DOM</Link>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -113,30 +123,42 @@ const DrawerHeader = styled('div')(({ theme }) => ({
       >
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === 'ltr' ? <ChevronLeftIcon />  :<ChevronRightIcon /> }
           </IconButton>
         </DrawerHeader>
         <Divider />
+
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+            <Link to="/" style={{ textDecoration: 'none', color:'black'}} >
+                <MenuItem>
+                    <ListItemIcon>
+                        <HomeRoundedIcon sx={{color:'black'}} fontSize="medium" />
+                    </ListItemIcon>
+                    <ListItemText > <Typography> Inicio</Typography> </ListItemText>
+                </MenuItem>
+            </Link>
+       
+            <Link to="/materias" style={{ textDecoration: 'none', color:'black'}}>
+                <MenuItem>
+                    <ListItemIcon>
+                    <MenuBookRoundedIcon sx={{color:'black'}} fontSize="medium" />
+                    </ListItemIcon>
+                    <ListItemText>Materias</ListItemText>
+                </MenuItem>
+            </Link>
         </List>
+        
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+        <Link to="/" style={{ textDecoration: 'none', color:'black'}}>
+            <MenuItem>
+                <ListItemIcon>
+                    <ContactPageRoundedIcon sx={{color:'black'}} fontSize="medium" />
+                </ListItemIcon>
+                    <ListItemText>Contacto</ListItemText>
+            </MenuItem>
+        </Link>
+
         </List>
       </Drawer>
       <Main open={open}>
