@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 const Home = () => {
     
     return(
-        <Typography variant="h5">Juan Leonel Vazquez Iglesias</Typography>
+        <Typography variant="h5">Juan Leonel Vazquez Iglesias.</Typography>
     );
 }
 

@@ -150,7 +150,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
         
         <Divider />
         <List>
-        <Link to="/" style={{ textDecoration: 'none', color:'black'}}>
+        <Link to="/contact" style={{ textDecoration: 'none', color:'black'}}>
             <MenuItem>
                 <ListItemIcon>
                     <ContactPageRoundedIcon sx={{color:'black'}} fontSize="medium" />

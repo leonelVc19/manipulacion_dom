@@ -15,11 +15,8 @@ import TextField from '@mui/material/TextField';
 import SaveRoundedIcon from '@mui/icons-material/SaveRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
-
 import Swal from 'sweetalert2';
 
-import IconButton from '@mui/material/IconButton';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { styled } from '@mui/material/styles';
 
 const Input = styled('input')({
@@ -37,21 +34,17 @@ const MateriasCard = ({index, utim, onDelete}) => {
 
     const handleChange = (e) => {
         setDatos({ ...datos, [e.target.name]: e.target.value });
-
     }
 
 
     const saveMaterias = () => {
         ///logica para guardad la informacion.
-      
        setEdit(!edit);
        Swal.fire(
         'Guardar',
         'La información fue guardada',
         'success'
       )
-
-
     }
 
     const handleEliminar = () => {
@@ -60,8 +53,8 @@ const MateriasCard = ({index, utim, onDelete}) => {
     }
 
     return(
-        <Grid item xs={2} sm={4} md={4} key={datos.id}  >
-            <Card sx={{ maxWidth: 345 }}>
+        <Grid item xs={1} sm={4} md={4} key={datos.id}  >
+            <Card sx={{ maxWidth: 345}} elevation={3}>
                 <CardMedia
                 component="img"
                 alt="green iguana"
@@ -100,43 +93,35 @@ const MateriasCard = ({index, utim, onDelete}) => {
                     )}
 
                  {!edit && (
-                    <Typography gutterBottom component="div">
+                    <Typography sx={{marginTop:1}} gutterBottom component="div">
                        Horarios: {datos.horario}.
                     </Typography>
                 )}
                     {edit && (
                     <TextField id="outlined-basic"
-                    sx={{marginTop:2}}
+                    sx={{marginTop:3}}
                     name="horario"
                     label="Horarios" variant="outlined" value={datos.horario} fullWidth
                     onChange={handleChange}
                     />
                     )}
-                    {edit && (
-                    <label htmlFor="icon-button-file"  onChange={handleChange}>
-                        <Input accept="image/*" id="icon-button-file" type="file"  />
-                        <IconButton color="primary" aria-label="upload picture"  component="span" onChange={handleChange} value={datos.horario} >
-                        <PhotoCamera />
-                        </IconButton>
-                    </label>
-                    )}
 
                     
 
                 </CardContent>
-                <CardActions>
-                    <Button   onClick={handleEliminar} variant="outlined" color="error" endIcon={<DeleteRoundedIcon />}>
-                        Eliminar
-                    </Button>
-                    {!edit && (
-                    <Button   onClick={handleEdit} variant="outlined" endIcon={<EditRoundedIcon />}>
-                        Editar
-                    </Button>
-                    )}
-                    {edit && (
-                        <Button onClick={saveMaterias} variant="outlined" endIcon={<SaveRoundedIcon />}> Guardar</Button>
-                        
-                    )}
+                <CardActions  >
+                        <Button   onClick={handleEliminar} variant="outlined" color="error" endIcon={<DeleteRoundedIcon />}>
+                            Eliminar
+                        </Button>
+                        {!edit && (
+                        <Button   onClick={handleEdit} variant="outlined" endIcon={<EditRoundedIcon />}>
+                            Editar
+                        </Button>
+                        )}
+                        {edit && (
+                            <Button onClick={saveMaterias} variant="outlined" endIcon={<SaveRoundedIcon />}> Guardar</Button>
+                            
+                        )}
                 
                 </CardActions>
             </Card>
