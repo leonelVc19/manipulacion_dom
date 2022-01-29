@@ -1,9 +1,10 @@
 import React from "react";
+import { Typography } from "@mui/material";
 
 const Home = () => {
     
     return(
-        <p>Juan Leonel Vazquez Iglesias</p>
+        <Typography variant="h5">Juan Leonel Vazquez Iglesias</Typography>
     );
 }
 

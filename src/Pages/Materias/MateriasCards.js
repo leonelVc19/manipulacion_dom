@@ -114,8 +114,8 @@ const MateriasCard = ({index, utim, onDelete}) => {
                     )}
                     {edit && (
                     <label htmlFor="icon-button-file"  onChange={handleChange}>
-                        <Input accept="image/*" id="icon-button-file" type="file" onChange={handleChange} value={datos.imagen} />
-                        <IconButton color="primary" aria-label="upload picture" component="span" onChange={handleChange} value={datos.horario} >
+                        <Input accept="image/*" id="icon-button-file" type="file"  />
+                        <IconButton color="primary" aria-label="upload picture"  component="span" onChange={handleChange} value={datos.horario} >
                         <PhotoCamera />
                         </IconButton>
                     </label>

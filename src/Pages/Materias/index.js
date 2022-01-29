@@ -41,7 +41,7 @@ const Materias = () => {
     const addMateria = () => {
         setMaterias([
             ...materias,
-            {id:5, materia:'', profesor:'', horario:'', imagen: ''},
+            {id:5, materia:'', profesor:'', horario:'', imagen: imagenes.img4},
         ]);
        
     };
